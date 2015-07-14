@@ -4,7 +4,9 @@
 <% else %>
   <h2>Here are all your posts.</h2>
   <% @posts.each do |post|%>
-    <div><%= post.title%></div>
+    <div><%= post.title%>
+        <%= link_to "Edit", edit_post_path(post)%>
+    </div>
   <% end %>
 <% end %>
 
