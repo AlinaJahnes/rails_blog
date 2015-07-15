@@ -1,0 +1,8 @@
+<% if @posts.nil? %>
+  <p>They haven't created any posts.</p>
+<% else %>
+  <h2>Here are all <%= @user.username%>'s posts.</h2>
+  <% @posts.each do |post|%>
+    <div><%= link_to post.title, post_path(post)%></div>
+  <% end %>
+<% end %>

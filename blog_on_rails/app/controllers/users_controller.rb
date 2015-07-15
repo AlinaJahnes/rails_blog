@@ -13,8 +13,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(session[:id])
-    @posts = Post.where(user_id: session[:id])
+    @user = User.find(session[:id])
+    @posts = @user.posts
+  end
+
+  def profile
+    @user = User.find(params[:id])
+    @posts = @user.posts
   end
 
   private

@@ -21,8 +21,15 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find_by_id(params[:id]).update(post_params)
+    @post = Post.find_by_id(params[:id])
+    @post.update(post_params)
     redirect_to @post
+  end
+
+  def destroy
+    user = User.find_by(id: session[:id])
+    post = Post.find_by(id: params[:id]).destroy
+    redirect_to user_path(user)
   end
 
   private

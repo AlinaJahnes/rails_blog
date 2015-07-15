@@ -1,5 +1,5 @@
 <h1>Welcome to Alina's Blog</h1>
 <% @posts.each do |post| %>
-  <div><%= link_to post.title, post_path(post) %> written by : <%= post.user.username%></div>
+  <div><%= link_to post.title, post_path(post) %> written by : <%= link_to post.user.username, profile_path(post.user) %></div>
 <% end %>
 
