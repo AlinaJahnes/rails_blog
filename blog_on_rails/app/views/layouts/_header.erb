@@ -1,5 +1,6 @@
 <%= link_to "Home", root_path %>
 <% if current_user %>
+<!-- It's best practice to refer to instance variables instead of method names. Also if you move this method out of the application controller helper (which you should), you won't have access to it anymore!-->
   <%= @current_user.username%>
   <%= link_to "Profile", user_path(session[:id]) %>
   <%= link_to "Logout", logout_path %>
