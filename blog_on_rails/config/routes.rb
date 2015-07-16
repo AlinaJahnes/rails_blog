@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users, except: [:new, :destroy]
   resources :posts
+  # How could you have done this with nested resources so that your routes would look like users/1/posts/3 and not just posts/3?
 
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
